@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<title> Language App by Kamal javar </title>
+		<style>
+			* { font-size: 40px; }
+			body { background-color: azure; }
+			input[type=checkbox] {width: 2%; height: 0.6em;}
+		</style>
+	</head>
+	<body>	
+	<center>
+		<h1> Language App </h1>
+		<form onsubmit="show()">
+			<input type="text"	id="name"	placeholder="enter ur name " />
+			<br/><br/>
+			<input type="checkbox"	id="python" />Python
+			<input type="checkbox"	id="java" />Java
+			<input type="checkbox"	id="js" />Java Script
+			<br/><br/>
+			<input type="submit" />
+		</form>
+			<h2 id="msg" />
+
+		<script>
+			function show()
+			{
+				event.preventDefault();
+
+				let name = document.getElementById("name");
+				let python = document.getElementById("python");
+				let java = document.getElementById("java");
+				let js = document.getElementById("js");
+				let msg = document.getElementById("msg");
+
+				if (name.value === "")
+				{
+					alert("please enter name");
+					msg.innerHTML = "";
+					name.focus();
+					return;
+				}
+		
+				if (! name.value.match("^[A-Za-z ]+$"))
+				{
+					alert("name shud contain only alphabets");
+					msg.innerHTML = "";
+					name.focus();
+					return;
+				}
+
+				let lang = "";
+				if (python.checked)			lang = lang +  " Python ";
+				if (java.checked)				lang = lang +  " Java ";
+				if (js.checked)				lang = lang +  " JavaScript ";
+
+				let ans = "name = " + name.value + " languages = " + lang;
+				msg.innerHTML = ans;
+			}
+		</script>
+	</center>
+	</body>
+</html>
+
+
+
+
+
+
+
